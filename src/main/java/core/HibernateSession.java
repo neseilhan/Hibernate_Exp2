@@ -16,6 +16,8 @@ public class HibernateSession {
                     .configure("hibernate.cfg.xml")
                     .addAnnotatedClass(Customer.class)
                     .buildSessionFactory();
+
+            session = factory.openSession();
         }
         return session;
     }

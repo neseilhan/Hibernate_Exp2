@@ -10,6 +10,8 @@ import java.util.List;
 
 public class CustomerDao implements ICustomerDao {
 
+    //Burada sadece veritabanı işlemleri olacak.
+
     private final Session session;
 
     public CustomerDao() {
@@ -49,7 +51,7 @@ public class CustomerDao implements ICustomerDao {
 
     @Override
     public Customer findbyMail(String mail) {
-        SelectionQuery<Customer> query = this.session.createSelectionQuery("FROM customer WHERE mail = :mail", Customer.class);
+        SelectionQuery<Customer> query = this.session.createSelectionQuery("FROM Customer WHERE mail = :mail", Customer.class);
         query.setParameter("mail", mail);
         return query.getSingleResultOrNull(); //veri varsa yollayacak yoksa null döndürecek.
     }
